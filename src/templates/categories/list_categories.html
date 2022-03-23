@@ -1,0 +1,12 @@
+<h1>Categories List:</h1>
+
+<ul>
+    {% for category in categories %}
+    <li>{{category[0]}} - {{category[1]}}</li>
+    <a href="/categories/edit/{{category[0]}}">edit</a>
+    <a href="/categories/delete/{{category[0]}}">delete</a>
+    {%endfor%}
+</ul>
+
+
+<a href="/categories">Categories Page</a>

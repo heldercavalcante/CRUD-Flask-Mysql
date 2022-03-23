@@ -2,10 +2,10 @@
 
 <ul>
 {% for product in products %}
-    <li>{{product[1]}} - R$ {{product[2]}} </li>
+    <li>{{product[3]}} - R$ {{product[4]}} - category:{{product[2]}}({{product[1]}}) </li>
     <a href="/products/edit/{{product[0]}}">edit</a> 
     <a href="/products/delete/{{product[0]}}">delete</a>
 {%endfor%}    
 </ul>
 
-<a href="/">Home Page</a>
+<a href="/products">Products Page</a>
