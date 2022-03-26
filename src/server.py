@@ -24,12 +24,14 @@ users = [
     {
         "name":"Helder",
         "email":"helder@gmail.com",
-        "password":"querotrabalhar"
+        "password":"querotrabalhar",
+        "roles":["product_edit","product_list","product_create"]
     },
     {
         "name":"Ronildo",
         "email":"rony@gmail.com",
-        "password":"queroparardetrabalhar"
+        "password":"queroparardetrabalhar",
+        "roles":["admin"]
     }
 ]
 
