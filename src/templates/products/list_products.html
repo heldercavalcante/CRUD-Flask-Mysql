@@ -1,11 +1,14 @@
-<h1>Products</h1>
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Products</h1>
 
-<ul>
-{% for product in products %}
-    <li>{{product[3]}} - R$ {{product[4]}} - category:{{product[2]}}({{product[1]}}) </li>
-    <a href="/products/edit/{{product[0]}}">edit</a> 
-    <a href="/products/delete/{{product[0]}}">delete</a>
-{%endfor%}    
-</ul>
+    <ul>
+    {% for product in products %}
+        <li>{{product[3]}} - R$ {{product[4]}} - category:{{product[2]}}({{product[1]}}) </li>
+        <a href="/products/edit/{{product[0]}}">edit</a> 
+        <a href="/products/delete/{{product[0]}}">delete</a>
+    {%endfor%}    
+    </ul>
 
-<a href="/products">Products Page</a>
+    <a href="/products">Products Page</a>
+{% endblock %}

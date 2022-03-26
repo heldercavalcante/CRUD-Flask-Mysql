@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div style="border:1px solid black" id="content">
+    
+      <a href="/">Home</a> |
+      <a href="/products">Products</a>
+  
+    </div> 
+    
+   
+    <div style="border:1px solid green" id="content">
+      
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+      {% block content %}{% endblock %}</div>
+    <div style="border:1px solid red"  id="footer">
+      {% block footer %}
+      &copy; Copyright 2010 by <a href="http://domain.invalid/">helder</a>.
+      {% endblock %}
+    </div>
+  </body>
+</html>
