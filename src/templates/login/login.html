@@ -1,0 +1,31 @@
+{% extends 'layout.html'%}
+{% block content %}
+
+<main id="login">
+
+  <form action="" method="post">
+    <h1>Login Page</h1>
+    <div class="mb-3">
+    <label id="lbid" class="form-label" for="email">Email:</label>
+    <input class="form-control" type="email" name="email" id="email" placeholder="enter your email">
+    <label id="lbid" class="form-label" for="password">Password:</label>
+    <input class="form-control" type="password" name="password" id="password" placeholder="enter your password">
+    </div>
+    <div class="mb-3">
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <a class="btn btn-primary" href="/">cancel</a>
+    </div>
+  </form>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  {% endwith %}
+</main>
+
+{% endblock %}

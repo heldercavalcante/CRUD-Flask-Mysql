@@ -1,11 +1,32 @@
-<h1>Products</h1>
+{% extends 'layout.html'%}
+{% block content %}
+  <main>
+      <h1>Products List</h1>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Category</th>
+              <th scope="col">Edit Product</th>
+              <th scope="col">Delete Product</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for product in products %}
+            <tr>
+              <th scope="row">{{product[0]}}</th>
+              <td>{{product[3]}}</td>
+              <td>R$ {{product[4]}}</td>
+              <td>{{product[2]}}</td>
+              <td><a class="btn btn-primary" href="/products/edit/{{product[0]}}" role="button">edit</a> </td>
+              <td><a class="btn btn-primary" href="/products/delete/{{product[0]}}" role="button">delete</a></td>
+            </tr>
+          {%endfor%}  
+          </tbody>
+      </table>
+      <a href="/products/new">ADD New Product</a><br>
+  </main>
 
-<ul>
-{% for product in products %}
-    <li>{{product[3]}} - R$ {{product[4]}} - category:{{product[2]}}({{product[1]}}) </li>
-    <a href="/products/edit/{{product[0]}}">edit</a> 
-    <a href="/products/delete/{{product[0]}}">delete</a>
-{%endfor%}    
-</ul>
-
-<a href="/products">Products Page</a>
+{% endblock %}

@@ -1,5 +1,17 @@
+
+{% extends 'layout.html'%}
+{% block content %}
+
+<main>
+<h1 id="edit">Insert the new category information bellow:</h1>
 <form method="post" action="/categories/update/{{category[0]}}">
-    <label for="name">Category Name:</label>
-    <input type="text" id="name" name="name" value="{{category[1]}}">
-    <input type="submit" value="submit">
+    <div class="mb-3">
+    <label for="newproduct" class="form-label">New category Name:</label>
+    <input id="newproduct" class="form-control" type="text" name="name" value="{{category[1]}}" /><br>
+    <button class="btn btn-primary" type="submit">submit</button>
+    <a class="btn btn-primary" href="/categories/list">cancel</a>
+    </div>
 </form>
+</main>
+
+{% endblock %}

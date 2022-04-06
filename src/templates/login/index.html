@@ -1,0 +1,12 @@
+
+  {% extends 'layout.html'%}
+  {% block content %}
+  
+
+  {% if username != '' %}
+  <h1>Welcome to the Virtual Store {{username}}! </h1>
+  {% else %}
+  <h1>Welcome to the Virtual Store</h1>
+  {% endif %}
+
+  {% endblock %}
