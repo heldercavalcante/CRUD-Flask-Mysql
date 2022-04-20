@@ -4,3 +4,5 @@ class Authentication:
 
     def is_logged(self):
         return 'user' in self.session
+
+    

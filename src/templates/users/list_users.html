@@ -21,7 +21,7 @@
         <th scope="row">{{user[0]}}</th>
         <td>{{user[1]}}</td>
         <td>{{user[2]}}</td>
-        <td>{{user[3]}}</td>
+        <td>{{user[3].strftime('%d/%m/%Y')}}</td>
         <td><a class="btn btn-primary" href="/users/edit/{{user[0]}}" role="button">edit</a> </td>
         <td><a class="btn btn-primary" href="/user/delete/{{user[0]}}" role="button">delete</a></td>
       </tr>

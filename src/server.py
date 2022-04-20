@@ -37,19 +37,13 @@ def index():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
-    users = users_service.list_users()
-
     if request.method == 'POST' and request.form['email'] != '':
-        email = request.form['email']
-        password = request.form['password']
-        encrypted_password = hashlib.sha256(password.encode()).hexdigest()
-        for user in users:
-            if email in user and encrypted_password in user:
-                session['user'] = user
-                return redirect(url_for('index'))
+        user = users_service.user_exist(request.form['email'], request.form['password'])
+        if user:
+            session['user'] = user
+            return redirect(url_for('index'))
         flash('email or password invalid')
     return render_template('/login/login.html')
-
 
 @app.route('/logout')
 def logout():
@@ -154,10 +148,8 @@ def new_user_page():
 def create_user():
     form_password = request.form['password']
     new_password = hashlib.sha256(form_password.encode()).hexdigest()
-    print(new_password)
-    print(type(new_password))
     users_service.create(request.form["name"], request.form["email"],
-           new_password, request.form["datetime"], db_connection)
+           new_password, db_connection)
     if auth.is_logged():
         return redirect(url_for("users_list"))
     return redirect(url_for('login'))
@@ -183,11 +175,8 @@ def update_user(user_id):
     pass_form = request.form['password']
     if len(pass_form) == 0: 
         new_pass_form = 0
-        print('cima')
     else:
         new_pass_form = hashlib.sha256(pass_form.encode()).hexdigest()
-        print('baixo')
-    print(f'aqui1: {new_pass_form}')
     users_service.update_user(request.form['name'], request.form['email'], user_id, db_connection, new_pass_form)
     return redirect(url_for("users_list"))
 
