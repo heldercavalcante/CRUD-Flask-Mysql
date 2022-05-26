@@ -1,7 +1,20 @@
-<form method="post" action="/products/update/{{product[0]}}">
-    <label>Product Name:</label>
-    <input type="text" name="name" value="{{product[2]}}" />
-    <label>Product Price:</label>
-    <input type="text" name="price" value="{{product[3]}}"/>
-    <button type="submit">Salvar</button>
-</form>
+    {% extends 'layout.html'%}
+    {% block content %}
+
+    <main>
+    <h1 id="edit">Insert the new product information bellow:</h1>
+    <form method="post" action="/products/update/{{product[0]}}">
+        <div class="mb-3">
+        <label for="newproduct" class="form-label">New Product Name:</label>
+        <input id="newproduct" class="form-control" type="text" name="name" value="{{product[2]}}" /><br>
+        <label for="newprice" class="form-label">New Product Price:</label>
+        <input id="newprice" class="form-control" type="text" name="price" value="{{product[3]}}"/>
+        </div>
+        <div class="mb-3">
+        <button class="btn btn-primary" type="submit">submit</button>
+        <a class="btn btn-primary" href="/products/list">cancel</a>
+        </div>
+    </form>
+    </main>
+
+    {% endblock %}

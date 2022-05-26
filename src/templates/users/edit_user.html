@@ -1,0 +1,22 @@
+{% extends 'layout.html'%}
+{% block content %}
+
+<main>
+<h1 id="edit">Insert the new User information bellow:</h1>
+<form method="post" action="/user/update/{{user[0]}}">
+    <div class="mb-3">
+    <label for="newproduct" class="form-label">New User Name:</label>
+    <input id="newproduct" class="form-control" type="text" name="name" value="{{user[1]}}" /><br>
+    <label for="newemail" class="form-label">New user Email:</label>
+    <input id="newemail" class="form-control" type="email" name="email" value="{{user[2]}}"/>
+    <label for="newemail" class="form-label">New password:</label>
+    <input id="newemail" class="form-control" type="password" name="password"/>
+    </div>
+    <div class="mb-3">
+    <button class="btn btn-primary" type="submit">submit</button>
+    <a class="btn btn-primary" href="/users/list">cancel</a>
+    </div>
+</form>
+</main>
+
+{% endblock %}

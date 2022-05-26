@@ -1,0 +1,22 @@
+
+  {% extends 'layout.html'%}
+  {% block content %}
+  
+  
+  <main>
+    <h1>Create a new User</h1>
+  <form action="/users/create" method="post">
+    <div class="mb-3">
+    <label class="form-label" for="name">Name:</label><br>
+    <input class="form-control" type="text" id="name" name="name"><br>
+    <label class="form-label" for="email">Email:</label><br>
+    <input class="form-control" type="email" id="email" name="email"><br>
+    <label class="form-label" for="password">Password:</label><br>
+    <input class="form-control" type="password" id="password" name="password"><br>
+    <input class="btn btn-primary" type="submit" value="submit">
+    <a class="btn btn-primary" href="/users/list">cancel</a>
+    </div>
+  </form>
+  </main>
+
+  {% endblock %}

@@ -1,10 +1,9 @@
 class ProductService:
 
-    def __init__(self,dbcursor):
+    def __init__(self, dbcursor):
         self.dbcursor = dbcursor
 
-
-    def create(self,name,price,conection, category):
+    def create(self, name, price, conection, category):
         sql = f"INSERT INTO `products` (`pro_category_id`, `pro_name`, `pro_price`) VALUES ('{category}', '{name}', '{price}');"
         self.dbcursor.execute(sql)
         conection.commit()

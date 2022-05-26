@@ -1,12 +1,30 @@
-<h1>Categories List:</h1>
-
-<ul>
-    {% for category in categories %}
-    <li>{{category[0]}} - {{category[1]}}</li>
-    <a href="/categories/edit/{{category[0]}}">edit</a>
-    <a href="/categories/delete/{{category[0]}}">delete</a>
-    {%endfor%}
-</ul>
+{% extends 'layout.html'%}
+{% block content %}
 
 
-<a href="/categories">Categories Page</a>
+<main>
+    <h1>Categories List</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Category</th>
+            <th scope="col">Edit Category</th>
+            <th scope="col">Delete Category</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+          <tr>
+            <th scope="row">{{category[0]}}</th>
+            <td>{{category[1]}}</td>
+            <td><a class="btn btn-primary" href="/categories/edit/{{category[0]}}" role="button">edit</a> </td>
+            <td><a class="btn btn-primary" href="/categories/delete/{{category[0]}}" role="button">delete</a></td>
+          </tr>
+        {%endfor%}  
+        </tbody>
+    </table>
+    <a href="/categories/new">ADD New Category</a><br>
+</main>
+
+{% endblock %}
